@@ -1,31 +1,86 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+#root {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*::-webkit-scrollbar{
+  display: none;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.logo {
+  height: 90%;
+}
+
+.nav-btns{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.music-player{
+  height: 50%;
+  padding: 10px;
+}
+
+.music-player::-webkit-media-controls-panel{
+  background-color: #FFE19C;
+}
+
+
+.nav-btn{
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  height: 35px;
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFE19C;
+  border: 1px solid black;
+  transition: ease 0.5s;
+}
+@media screen and (min-width:700px) {
+  .nav-btn:hover{
+    transition: ease 0.5s;
+    transform: scale(1.1);
+    box-shadow: 3px 3px 5px black;
   }
 }
-
+.nav-btn:active{
+  transform: scale(0.8);
+}
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #DB9D47;
+  height: 10vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 0px 20px;
 }
-
+.heading{
+  font-family: 'PlayFair Display',sans-serif;
+  font-weight: 400;
+  color: #EDFFD9;
+  margin:0px;
+}
 .App-link {
   color: #61dafb;
+}
+
+@media screen and (max-width:700px) {
+  .nav-btn{
+    font-size: 50%;
+    font-weight: 500;
+  }
+  #top{
+    display: none;
+  }
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +90,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.main-container{
+  height: 80vh;
 }
