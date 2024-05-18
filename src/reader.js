@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import ReadPane from "./readpane";
 import SummaryPane from "./summarypane";
@@ -13,15 +14,15 @@ function Reader({ chapter }) {
   function getLang() {
     return localStorage.getItem("lang");
   }
-  const [fullread, setfullread] = useState(true);
+  const [fullread, setfullread] = useState(false);
   const [lang, setLanguage] = useState(getLang());
   const [chapterdata, setchapterdata] = useState({});
   const [title, settitle] = useState("");
   const fetchdata = async (url) => {
     const response = await fetch(url, options);
     const result = await response.text();
+    settitle(JSON.parse(result).name);
     setchapterdata(JSON.parse(result));
-    settitle(chapterdata.name);
   };
   useEffect(() => {
     fetchdata(
