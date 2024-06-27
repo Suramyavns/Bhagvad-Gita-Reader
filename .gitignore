@@ -25,3 +25,5 @@ reconfig.sh
 
 # Local Netlify folder
 .netlify
+/src/rapidapi.js
+newideas

@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
 import React from "react";
-
+import options from "./rapidapi";
 function Chapters({ shareData }) {
   const url = "https://bhagavad-gita3.p.rapidapi.com/v2/chapters/";
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "c60c2a06e1mshb4f017f597a0211p18557ajsn2fad4e30d3ca",
-      "X-RapidAPI-Host": "bhagavad-gita3.p.rapidapi.com",
-    },
-  };
+
   const storeData = async (result) => {
     JSON.parse(result).map(async (chapter) => {
       if (chapter.id === 1) {
