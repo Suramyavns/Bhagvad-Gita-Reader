@@ -25,6 +25,7 @@ function Chapters({ shareData }) {
 
   useEffect(() => {
     fetchdata();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
   return (
