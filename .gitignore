@@ -25,5 +25,8 @@ reconfig.sh
 
 # Local Netlify folder
 .netlify
+
+#DEV FILES
 /src/rapidapi.js
 newideas
+.gitignore
