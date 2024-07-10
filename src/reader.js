@@ -76,7 +76,7 @@ function Reader({ chapter }) {
             </button>
           )}
           <select
-            style={{ fontSize: "12px" }}
+            style={{ fontSize: "2vh" }}
             onChange={(e) => {
               setLanguage(e.target.value);
             }}
