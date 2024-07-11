@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import React from "react";
 import options from "./rapidapi";
+import Loading from "./loading.js";
+import { lazy } from "react";
 function Chapters({ shareData }) {
   const url = "https://bhagavad-gita3.p.rapidapi.com/v2/chapters/";
 
@@ -31,23 +33,24 @@ function Chapters({ shareData }) {
   return (
     <div className="chapters">
       <div className="chapter-heading">Chapters</div>
-      <div className="chapter-names">
-        {chapters.map((chapter) => {
-          return (
-            <div
-              className="chapter-name"
-              key={chapter.id}
-              onClick={() => {
-                shareData(chapter);
-              }}
-            >
-              {chapter.name}
-            </div>
-          );
-        })}
-      </div>
+      <Suspense fallback={<Loading />}>
+        <div className="chapter-names">
+          {chapters.map((chapter) => {
+            return (
+              <div
+                className="chapter-name"
+                key={chapter.id}
+                onClick={() => {
+                  shareData(chapter);
+                }}
+              >
+                {chapter.name}
+              </div>
+            );
+          })}
+        </div>
+      </Suspense>
     </div>
   );
 }
-
 export default Chapters;

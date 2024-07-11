@@ -1,12 +1,12 @@
 import logo from "./bglogo.png";
 import "./App.css";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import music from "./bgmusic.mp3";
 import { useState } from "react";
 import "font-awesome/css/font-awesome.min.css";
+import Loading from "./loading";
 import Reader from "./reader";
-import Chapters from "./chapters";
-
+const Chapters = lazy(() => import("./chapters.js"));
 function App() {
   const [currChapter, setCurrChapter] = useState({});
   const [state, setState] = useState({
@@ -40,12 +40,16 @@ function App() {
         </button>
       </header>
       <main className="main-container">
-        <Chapters
-          shareData={(data) => {
-            setCurrChapter(data);
-          }}
-        />
-        <Reader chapter={currChapter} />
+        <Suspense fallback={<Loading />}>
+          <Chapters
+            shareData={(data) => {
+              setCurrChapter(data);
+            }}
+          />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <Reader chapter={currChapter} />
+        </Suspense>
       </main>
       <footer className="App-header">
         <p className="heading">
@@ -56,5 +60,4 @@ function App() {
     </>
   );
 }
-
 export default App;
