@@ -1,12 +1,14 @@
 import logo from "./bglogo.png";
 import "./App.css";
-import React from "react";
+import React, { Suspense } from "react";
 import music from "./bgmusic.mp3";
 import { useState } from "react";
 import "font-awesome/css/font-awesome.min.css";
 import Reader from "./reader";
 import Chapters from "./chapters";
-
+import Loading from "./loading.js";
+import { useMediaQuery } from "@mui/material";
+import AlertCard from "./mobile/card";
 function App() {
   const [currChapter, setCurrChapter] = useState({});
   const [state, setState] = useState({
@@ -24,6 +26,9 @@ function App() {
       setState({ play: false, btntext: "Play OM chant" });
     }
   };
+  if (useMediaQuery("(max-width:700px)")) {
+    return <AlertCard />;
+  }
   return (
     <>
       <header className="App-header">
@@ -40,12 +45,16 @@ function App() {
         </button>
       </header>
       <main className="main-container">
-        <Chapters
-          shareData={(data) => {
-            setCurrChapter(data);
-          }}
-        />
-        <Reader chapter={currChapter} />
+        <Suspense fallback={<Loading />}>
+          <Chapters
+            shareData={(data) => {
+              setCurrChapter(data);
+            }}
+          />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <Reader chapter={currChapter} />
+        </Suspense>
       </main>
       <footer className="App-header">
         <p className="heading">
@@ -56,5 +65,4 @@ function App() {
     </>
   );
 }
-
 export default App;
