@@ -1,8 +1,7 @@
 import { Suspense, useEffect, useState } from "react";
 import React from "react";
 import options from "./rapidapi";
-import Loading from "./loading.js";
-import { lazy } from "react";
+import Loading from "./loading";
 function Chapters({ shareData }) {
   const url = "https://bhagavad-gita3.p.rapidapi.com/v2/chapters/";
 

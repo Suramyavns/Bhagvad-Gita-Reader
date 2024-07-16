@@ -9,7 +9,7 @@ function SummaryPane({ language, ch }) {
         setsummary(ch.chapter_summary);
       }
     }
-  }, [ch]);
+  }, [ch, language]);
   return <div className="pane">{summary}</div>;
 }
 

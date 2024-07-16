@@ -1,12 +1,14 @@
 import logo from "./bglogo.png";
 import "./App.css";
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
 import music from "./bgmusic.mp3";
 import { useState } from "react";
 import "font-awesome/css/font-awesome.min.css";
-import Loading from "./loading";
 import Reader from "./reader";
-const Chapters = lazy(() => import("./chapters.js"));
+import Chapters from "./chapters";
+import Loading from "./loading.js";
+import { useMediaQuery } from "@mui/material";
+import AlertCard from "./mobile/card";
 function App() {
   const [currChapter, setCurrChapter] = useState({});
   const [state, setState] = useState({
@@ -24,6 +26,9 @@ function App() {
       setState({ play: false, btntext: "Play OM chant" });
     }
   };
+  if (useMediaQuery("(max-width:700px)")) {
+    return <AlertCard />;
+  }
   return (
     <>
       <header className="App-header">
