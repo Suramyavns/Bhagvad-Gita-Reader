@@ -27,6 +27,5 @@ reconfig.sh
 .netlify
 
 #DEV FILES
-/src/rapidapi.js
 newideas
 .gitignore
