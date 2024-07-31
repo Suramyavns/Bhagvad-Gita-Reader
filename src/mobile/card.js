@@ -10,6 +10,7 @@ export default function AlertCard() {
         backgroundColor: Colors.bglight,
       }}
     >
+      {window.scrollTo(0, 1)}
       <Card
         style={{
           width: "18rem",
