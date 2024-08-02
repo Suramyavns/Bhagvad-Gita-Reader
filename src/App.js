@@ -56,11 +56,14 @@ function App() {
           <Reader chapter={currChapter} />
         </Suspense>
       </main>
-      <footer className="App-header">
-        <p className="heading">
-          Made with <i className="fa fa-heart" style={{ color: "maroon" }}></i>{" "}
-          by Suramya Didwania
-        </p>
+      <footer>
+        <div className="App-header">
+          <p className="heading">
+            Made with{" "}
+            <i className="fa fa-heart" style={{ color: "maroon" }}></i> by
+            Suramya Didwania
+          </p>
+        </div>
       </footer>
     </>
   );

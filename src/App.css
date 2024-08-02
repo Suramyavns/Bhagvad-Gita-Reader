@@ -9,7 +9,6 @@
   display: none;
   overflow: hidden;
 }
-
 .logo {
   height: 90%;
 }
@@ -94,13 +93,13 @@ select {
     transform: rotate(360deg);
   }
 }
-
 .main-container {
-  height: 80vh;
+  position: relative;
   display: grid;
+  width: 100%;
   grid-template-columns: 1fr 11fr;
   align-items: start;
-  overflow: auto;
+  overflow: scroll;
 }
 .chapters {
   width: 20vw;
@@ -127,6 +126,7 @@ select {
   align-items: flex-start;
   flex-direction: column;
   height: 100%;
+  overflow: scroll;
 }
 .chapter-name {
   display: flex;
@@ -177,5 +177,23 @@ option {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+}
+.pane {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe19c;
+}
+.full-read {
   height: 90%;
+  width: 90%;
+  text-align: justify;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.5;
+  overflow: scroll;
 }

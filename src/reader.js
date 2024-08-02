@@ -1,20 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import ReadPane from "./readpane";
-import SummaryPane from "./summarypane";
-
+import options from "./rapidapi";
 function Reader({ chapter }) {
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "c60c2a06e1mshb4f017f597a0211p18557ajsn2fad4e30d3ca",
-      "X-RapidAPI-Host": "bhagavad-gita3.p.rapidapi.com",
-    },
-  };
   function getLang() {
     return localStorage.getItem("lang");
   }
-  const [fullread, setfullread] = useState(false);
+  const [fullread, setfullread] = useState(true);
   const [lang, setLanguage] = useState(getLang());
   const [chapterdata, setchapterdata] = useState({});
   const [title, settitle] = useState("");
@@ -96,11 +88,7 @@ function Reader({ chapter }) {
         </div>
       </div>
       <div className="chapter-read">
-        {fullread === true ? (
-          <ReadPane language={lang} ch={chapterdata} />
-        ) : (
-          <SummaryPane language={lang} ch={chapterdata} />
-        )}
+        <ReadPane language={lang} ch={chapterdata} full={fullread} />
       </div>
     </div>
   );
